@@ -1,24 +1,41 @@
+import dbreader.DbReader;
+import model.Animal;
+import model.Cat;
+import model.Dog;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
             System.out.println("Hello world!");
-        try{
-            String url = "jdbc:mysql://localhost:3306/human_friends?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "1369";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+        DbReader dbReader = new DbReader();
+        dbReader.testConection();
+        Cat testCat = new Cat();
+        testCat.setName("Fasol");
+        testCat.setCommands("Eat, shit, sleep");
+//        System.out.println(testCat);
+        test();
+        Dog testDog = new Dog();
+        testDog.setName("test");
+        testDog.setBirthDate(LocalDate.parse("2000-01-01"));
+        testDog.setCommands("test");
+        dbReader.addAnimal(testDog);
+        test();
 
-                System.out.println("Connection to Store DB succesfull!");
-            }
-        }
-        catch(Exception ex){
-            System.out.println("Connection failed...");
+    }
 
-            System.out.println(ex);
+    static void test(){
+        DbReader dbReader = new DbReader();
+        List<Animal> test = dbReader.getAllAnimals();
+        int count = 1;
+        for (Animal animal:
+                test) {
+            System.out.println("" + count++ + " " + animal);
         }
     }
 }
