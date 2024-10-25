@@ -54,7 +54,7 @@ public class DbReader {
         return resultList;
     }
 
-    public void addAnimal (Animal animal){
+    public void addAnimal(Animal animal){
         try{
             String url = "jdbc:mysql://localhost:3306/human_friends?serverTimezone=Europe/Moscow&useSSL=false";
             String username = "root";
@@ -70,6 +70,34 @@ public class DbReader {
             System.out.println("Connection failed...");
             System.out.println(ex);
         }
+    }
+
+    public List<String> findTablesNames(){
+        List<String> resultList = new ArrayList<String>();
+
+        try{
+            String url = "jdbc:mysql://localhost:3306/human_friends?serverTimezone=Europe/Moscow&useSSL=false";
+            String username = "root";
+            String password = "1369";
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)){
+
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT table_name FROM information_schema.tables\r\n" + //
+                                        "WHERE table_schema = 'human_friends';");
+                while(resultSet.next()){
+
+                    resultList.add(resultSet.getString(1));
+
+                };
+            }
+        }
+        catch(Exception ex){
+            System.out.println("Connection failed...");
+
+            System.out.println(ex);
+        }
+        return resultList;
     }
     public void testConection(){
         try{
