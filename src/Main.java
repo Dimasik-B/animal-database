@@ -27,13 +27,5 @@ public class Main {
 
     }
 
-    static void test(){
-        DbReader dbReader = new DbReader();
-        List<Animal> test = dbReader.getAllAnimals();
-        int count = 1;
-        for (Animal animal:
-                test) {
-            System.out.println("" + count++ + " " + animal);
-        }
-    }
+//
 }

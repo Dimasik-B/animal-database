@@ -81,9 +81,10 @@ public class DbReader {
             String password = "1369";
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)){
-                String values ="'" + animal.getName() + "', '" + animal.getBirthDate().toString() + "', '" + animal.getCommands() + "'";
+                String values ="'" + animal.getName() + "', '" + animal.getBirthDate().toString() + "', '" + animal.getCommands() + "', '" + animal.getKindId() + "'";
                 Statement statement = conn.createStatement();
-                statement.executeUpdate("INSERT animal_list(name, birth_date, commands) VALUES (" + values + ")");
+                System.out.println(animal);
+                statement.executeUpdate(String.format("INSERT %s (name, birth_date, commands, %s_id) VALUES (" + values + ")", animal.getClass().getSimpleName().toLowerCase(), animal.getType()));
             }
         }
         catch(Exception ex){

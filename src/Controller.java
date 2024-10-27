@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -88,7 +89,7 @@ public class Controller {
         Animal tempAnimal = new AnimalFactory().create(scanner.next());
         System.out.println("Введите имя: ");
         tempAnimal.setName(scanner.next());
-        System.out.println("Введите дату рождения: ");
+        System.out.println("Введите дату рождения (ДД.ММ.ГГГГ): ");
         tempAnimal.setBirthDate(LocalDate.parse(scanner.next()));
         return tempAnimal;
     }
