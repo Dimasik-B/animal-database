@@ -1,6 +1,6 @@
 import java.util.List;
+import java.util.Map;
 
-import dbreader.DbReader;
 import model.Animal;
 
 public class View {
@@ -8,9 +8,17 @@ public class View {
         System.out.println("""
                         1. Показать всех животных
                         2. Завести новое животное
-                        3. Выйти
+                        3. Найти животное
+                        4. Выйти
                             """);
-                            
+    }
+
+    public void showAnimalEditorMenu(){
+        System.out.println("""
+                        1. Обучить новой команде
+                        2. Удалить запись
+                        3. Отмена
+                            """);
     }
 
     public void show(String string){
@@ -24,4 +32,5 @@ public class View {
             System.out.println("" + count++ + " " + animal);
         }
     }
+
 }

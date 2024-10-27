@@ -1,14 +1,7 @@
-import dbreader.DbReader;
+import db.DbReader;
 import model.Animal;
-import model.Cat;
-import model.Dog;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
