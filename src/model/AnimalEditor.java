@@ -1,7 +1,7 @@
 package model;
 
 public class AnimalEditor {
-    Animal animal;
+    private Animal animal;
 
     public AnimalEditor(Animal animal) {
         this.animal = animal;
