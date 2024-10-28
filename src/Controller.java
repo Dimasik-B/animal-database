@@ -89,11 +89,11 @@ public class Controller {
     }
 
     private Animal readAnimal(){
-        System.out.println("Введите вид: ");
+        view.show("Введите вид: ");
         Animal tempAnimal = new AnimalFactory().create(scanner.next());
-        System.out.println("Введите имя: ");
+        view.show("Введите имя: ");
         tempAnimal.setName(scanner.next());
-        System.out.println("Введите дату рождения (ДД.ММ.ГГГГ): ");
+        view.show("Введите дату рождения (ГГГГ-ММ-ДД): ");
         tempAnimal.setBirthDate(LocalDate.parse(scanner.next()));
         tempAnimal.setCommands("Нет команд");
         return tempAnimal;
