@@ -1,4 +1,4 @@
-import db.DbReader;
+import database.DbReader;
 import model.Animal;
 import model.AnimalEditor;
 
