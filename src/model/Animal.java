@@ -47,6 +47,6 @@ public class Animal {
     public String toString() {
         return  "Name: " + name +
                 "; Birth Date: " + birthDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) +
-                ": Commands: " + commands +'}';
+                ": Commands: " + commands;
     }
 }

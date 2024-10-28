@@ -4,6 +4,6 @@ public class Cat extends Pet{
 
 
     public Cat() {
-        this.kindId = 2;
+        this.kindId = 1;
     }
 }
